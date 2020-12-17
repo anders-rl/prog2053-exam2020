@@ -10,12 +10,8 @@ class EditUser extends LitElement {
   constructor() {
     super();
       
-    this.user = { //this.user should contain the information that was sent from users-list when triggered
-      uname: '',
-      firstName: '',
-      lastName: '',
-      oldPwd: '',
-      pwd: ''
+    this.user = {}; //this.user should contain the information that was sent from users-list when triggered
+      
 
 
 
@@ -80,8 +76,9 @@ checkFields() { //The ide of this function is to fist check if there is a new pa
 
     oldPwd = ${this.user.pwd}
 
-    fetch('api/updateUser.php', {method: 'POST'})
-      .then(respons) => //send information from form to the api, and there it will update the database
+    fetch('api/updateUser.php', {method: 'POST', body: from})
+      .then(respons => response.json())
+      .then(data => {});//send information from form to the api, and there it will update the database
 
   }
 
@@ -90,9 +87,9 @@ checkFields() { //The ide of this function is to fist check if there is a new pa
     oldPwd = ${this.user.pwd}; 
     Pwd = p;
 
-    fetch('api/updateUser.php', {method: 'POST'})
-      .then(respons) => //Add the infromation into the database
-
+    fetch('api/updateUser.php', {method: 'POST', body: from})
+      .then(respons => response.json())
+      .then(data => {}); //Send the data, and update the database
   }
 
 }
